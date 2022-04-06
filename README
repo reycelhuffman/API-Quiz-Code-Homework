@@ -1,0 +1,11 @@
+Code startQuiz
+This is a timed code with multiple questions. 
+
+Intructions
+1. Click "Start" to start quiz 
+   - Total quiz time is 105 seconds with 5 questions in total
+    - The "View High Score" at the end of the quiz 
+2. Series of questions are presented with multiple choice answers
+    - If the question is answered wrong, 10 seconds will be deducted to the timer
+    - If the question is answered correctly, will add 1 to the score
+    - After question is answered, it will show on the bottom whether it is answered correctly or wrong. If wrong it will show the correct answer. 
