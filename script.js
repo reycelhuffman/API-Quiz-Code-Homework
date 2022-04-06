@@ -1,191 +1,201 @@
-let quizQuestions = document.querySelector('quiz-questions');
-let timer = document.querySelector('timer');
-let startBtn = document.querySelector('start button');
-let timeCounter = document.querySelector('time counter');
-let titleItem = document.querySelector('title-item');
-let nextQuestions
-let questionAnswers = document.querySelector("question-answer");
-let myScore = document.querySelector('my-score');
-let btnScore = document.querySelector('btn-score');
+let startButton = document.querySelector('#startQuiz');
+let timerEl = document.querySelector('#timer');
+let = questionNumber = 0;
+let = answerNumber - 0;
+let one = 1;
+let two = 2;
+let three = 3; 
+let four = 4;
 
 
+let answer1 = document.querySelector('#answer1');
+let answer2 = document.querySelector('#answer2'); 
+let answer3 = document.querySelector('#answer3'); 
+let answer4 = document.querySelector('#answer4'); 
+
+answer1.addEventListener('click', answer1click);
+answer2.addEventListener('click', answer2click);
+answer3.addEventListener('click', answer3click);
+answer4.addEventListener('click', answer4click);
 
 
-let questions = [
-    {
-        question: "Who invented JavaScript?"
-        answer: {
-            a: "Douglas Crockford",
-            b: "Sheryl Sandberg",
-            c: "Brendan Eich"
-        },
-        correctAnswer: "c"
-    },
+const questions = [
+    "What is Katniss sister's full name?",
+    "Why does the Capital hold the Hunger Games?",
+    "Under what circumstances did Katniss first meet Peeta?",
+    "What does Rue point out to Katniss that let her get away form the group of Career Tributes?",
+    "How do Katniss and Peeta force the Capitol to declare them both winners?"
+]
 
-    {   question: "Where is the correct place to insert a JavaScript?"
-        answer: {
-            a: "The <body> section",
-            b: "Both the <head> section and the <body> section are correct",
-            c: "The <head> section"
-        },
-        correctAnswer: "b"
-        
-    },
-
-    {
-        question: "How to write an IF statement for executing some code if "i" is NOT equal to 5?"
-        answer: {
-            a: "if (i != 5)",
-            b: "if i =! 5 then",
-            c: "if (i <> 5)"
-        },
-        correctAnswer: "a"
-    },
-
-    {
-        question: "How does a WHILE loop start?"
-        answer: {
-            a: "while (i <= 10; i++)",
-            b: "while i = 1 to 10",
-            c: "while (i <= 10) "
-        },
-        correctAnswer: "c"
-    },
-
-    {
-        question: "How do you declare a JavaScript variable?"
-        answer: {
-            a: "var carName",
-            b: "variable carName",
-            c: "v carName"
-        },
-        correct answer: "a"
-    }
-
-    {
-        question: "What will the following code return: Boolean(10 > 9)?"
-        answer: {
-            a: "NaN",
-            b: "false",
-            c: "true  "
-        },
-        correct answer: "c"
-    }
-
-    {
-        question: "What is the correct syntax for referring to an external script called "xxx.js?"
-        answer: {
-            a: "<script href="xxx.js"> ",
-            b: "<script name="xxx.js">",
-            c: "<script src="xxx.js">"
-        },
-        correct answer: "a"
-    },
+const answerquestionone = [
+    "Pamela",
+    "Primly",
+    "Prim",
+    "Primrose",
 ];
 
-startBtn.addEventListener('click', startQuiz);
-function starQuiz(){
-    if(storedScores !==null) {
-        allScores = storedScores;
+const answerquestiontwo = [
+    "As a way to control the size of the population",
+    "To keep the districts happy",
+    "Because they are part of a religious festival",
+    "To remind the districts that they are powerless against it",
+];
+
+const answerquestionthree = [
+    "Katniss was looking for food and Peeta gave her bread",
+    "They were both in the woods hunting",
+    "They did a project at school together",
+    "Peeta was injured and Katniss’s mother helped him",
+];
+
+const answerquestionfour = [
+    "A sheaf of arrows",
+    "A tracker jacker nest",
+    "A boulder",
+    "A mockinjay nest",
+];
+
+const answerquestionfive = [
+    "They threaten to run away",
+    "They threaten that the winner will tell about everything",
+    "They threaten to commit suicide",
+    "They threaten to cause a rebellion against the Capitol",
+];
+
+document.querySelector("#question").innerHTML = questions[questionNumber];
+document.querySelector("#answer1").innerHTML = answerquestion[0];
+document.querySelector("#answer2").innerHTML = answerquestionone[1];
+document.querySelector("#answer3").innerHTML = answerquestiontwo[2];
+document.querySelector("#answer4").innerHTML = answerquestionthree[3];
+document.querySelector("#answer5").innerHTML = answerquestionfour[4];
+
+function answer1click() {
+    if (questionNumber == 0) {
+        wrong ();
     }
-    info.classList.add("d-none")
-    btnStart.classList.add("d-none")
-    timecounter.classList.remove("d-none")
-    quizQuestions.classList.remove("d-none")
-    nextQuestions= questions[currentindex]
-    console.log(nextQuestions.title)
+    if (questionNumber == 1) {
+        wrong();
+    }
+    if (questionNumber == 2) {
+        wrong ();
+}   if (questionNumber == 3) {
+        right ();
     
-        displayQuestion(nextQuestions)
-
-    gametime()
 }
-btnScore.addEventListener("click" , function(){
-    let name = document.getElementById("inputScore").value
-    scorePage(name, count)
-});
-// Time set
-
-function gametime(){
-
-    var timeinterval = setInterval(function(){
-        timer.innerText = count
-         count--;
-        }, 1000);
-
+questionNumber++;
+start();
 }
 
-function scorePage(a, b) {
-
-    var userData = {
-        inits: a,
-        userScore: b
-    };
-    allScores.push(userData);
-
-    localStorage.setItem("userData", JSON.stringify(allScores));
-    location.href = "score.html";
+function answer2click() {
+    if (questionNumber == 0) {
+        wrong();
+    }
+    if (questionNumber == 1) {
+        wrong();
+    }
+    if (questionNumber == 2) {
+        wrong ();
+    }
+    if (questionNumber == 3) {
+        right ();
+    }
+}
+questionNumber++;
+start();
 }
 
-function displayQuestion(question){
-    titleitem.innerText=question.title
-    question.choices.forEach(element => {
-     var button =document.createElement("button")
-    button.className="btn-primary btn-block text-left"
-    button.innerText=element
-    // questionanswers.innerHTML=""
-    questionanswers.appendChild(button)
-    button.addEventListener("click", displaynextQuestion)
-    });
+function answer3click() {
+    if (questionNumber == 0) {
+        right ();
+    }
+    if (questionNumber == 1) {
+        wrong();
+    }
+    if (questionNumber == 2) {
+        wrong ();
+    }
+    if (questionNumber == 3) {
+        wrong ();
 }
 
+questionNumber++;
+start();
+}
 
-function displaynextQuestion(e){
-    currentindex++
-    if(currentindex < questions.length){
-        correction(e.target.innerText == nextQuestions.answer)
-        questionanswers.innerHTML=""
-        if(currentindex < questions.length){    
-            nextQuestions= questions[currentindex]
-            displayQuestion(nextQuestions)  
-        }else {
-            currentindex = 0
-            displayQuestion(nextQuestions)  
+function answer4click() {
+    if (questionNumber == 0) {
+        wrong();
+    }
+    if (questionNumber == 1) {
+        right();
+    }
+    if (questionNumber == 2) {
+        wrong ();
+    }
+    if (questionNumber == 2) {
+    }   wrong ();
+}   
+
+function answer5click() {
+        if (questionNumber == 0) {
+            wrong();
         }
-
-    }else{
-        console.log("endgame")
-        endgame()
-        
-
-    }
-    
-     
+        if (questionNumber == 1) {
+            right();
+        }
+        if (questionNumber == 2) {
+            right ();
+        }
+        if (questionNumber == 2) {
+        }   wrong ();
 }
-function correction(response){
-    
-    if(response){
-        alert.innerText= "Good"
-        console.log("Good")
-    }else {
-        alert.innerText="Wrong"
-        count = count -15
-        timer.innerHTML = count
-        console.log("Wrong")
+questionNumber++;
+start();
 
-    }
-    setTimeout(function(){
-        alert.innerText=""
-    
-        }, 1000);
 
+function wrong() {
+    console.log("wrong")
 }
- function endgame (){
-    // btnStart.classList.add("d-none")
-    myScore.innaText = count
-    addscore.classList.remove("d-none")
-    timecounter.classList.add("d-none")
-    quizQuestions.classList.add("d-none")
-    addscore.classList.remove("d-none")
 
+function right() {
+    console.log("right")
+}
 
- }
+function start() {
+    if (questionNumber == 0) {
+        document.querySelector("#question").innerHTML = [questionNumber];
+        document.querySelector("#answer1").innerHTML = answerQuestion[0];
+        document.querySelector("#answer2").innerHTML = answerQuestionone[1];
+        document.querySelector("#answer3").innerHTML = answerQuestiontwo[2];
+        document.querySelector("#answer4").innerHTML = answerQuestionthree[3];
+    }
+    else if (questionNumber == 1) {
+        let drawAnswer = answerQuestiontwo
+        document.querySelector("#question").innerHTML = [questionNumber];
+        document.querySelector("#answer1").innerHTML = answerQuestion[0];
+        document.querySelector("#answer2").innerHTML = answerQuestionone[1];
+        document.querySelector("#answer3").innerHTML = answerQuestiontwo[2];
+        document.querySelector("#answer4").innerHTML = answerQuestionthree[3];
+    }
+    else if (questionNumber == 2) {
+        document.querySelector("#question").innerHTML = [questionNumber];
+        document.querySelector("#answer1").innerHTML = answerQuestion[0];
+        document.querySelector("#answer2").innerHTML = answerQuestionone[1];
+        document.querySelector("#answer3").innerHTML = answerQuestiontwo[2];
+        document.querySelector("#answer4").innerHTML = answerQuestionthree[3];
+    }
+    else if (questionNumber == 3) {
+        document.querySelector("#question").innerHTML = [questionNumber];
+        document.querySelector("#answer1").innerHTML = answerQuestion[0];
+        document.querySelector("#answer2").innerHTML = answerQuestionone[1];
+        document.querySelector("#answer3").innerHTML = answerQuestiontwo[2];
+        document.querySelector("#answer4").innerHTML = answerQuestionthree[3];
+    }
+    else if (questionNumber == 4) {
+        document.querySelector("#question").innerHTML = [questionNumber];
+        document.querySelector("#answer1").innerHTML = answerQuestion[0];
+        document.querySelector("#answer2").innerHTML = answerQuestionone[1];
+        document.querySelector("#answer3").innerHTML = answerQuestiontwo[2];
+        document.querySelector("#answer4").innerHTML = answerQuestionthree[3];
+    }
+}   
