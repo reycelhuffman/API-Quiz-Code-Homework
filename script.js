@@ -1,3 +1,8 @@
+let highScoreSection = document.querySelector("highScoreSection");
+let finalScore = document.querySelector("finalScore");
+let clearHighScoreBtn = document.querySelector("clearHighScoreBtn");
+let viewHighScore = document.querySelector("viewHighScore");
+let listOfHighScores = document.que("listOfHighScores");
 let startButton = document.querySelector('#startQuiz');
 let timerEl = document.querySelector('#timer');
 let = questionNumber = 0;

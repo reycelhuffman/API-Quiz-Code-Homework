@@ -9,3 +9,13 @@ Intructions
     - If the question is answered wrong, 10 seconds will be deducted to the timer
     - If the question is answered correctly, will add 1 to the score
     - After question is answered, it will show on the bottom whether it is answered correctly or wrong. If wrong it will show the correct answer. 
+3. When all questions are answered or the timer reaches 0, game is over
+4. When game is over, the user can enter initial and score, click "Submit" to save to high scores to local storage 
+5. Then it will show a list of saved high scores
+6. The user then will have the option to click on the "Go Back" to start quiz all over again or "Clear High Scores" to clear saved scores
+Features 
+- HTML
+- CSS
+- Javascript 
+Websites: GitHub: https://github.com/reycelhuffmanAPI-Quiz-Code-Homework.git
+Deployed: https://reycelhuffman.github.io/API-Quiz-Code-Homework/
