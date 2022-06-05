@@ -58,48 +58,42 @@ answer3.addEventListener('click', answer3click);
 
 
 
-const questions = [
-    "What is Katniss sister's full name?",
-    "Why does the Capital hold the Hunger Games?",
-    "Under what circumstances did Katniss first meet Peeta?",
-    "What does Rue point out to Katniss that let her get away form the group of Career Tributes?",
-    "How do Katniss and Peeta force the Capitol to declare them both winners?"
+let questions = [
+    {
+        question: "What is Katniss sister's full name?",
+        choices: ["Pamela", "Primly", "Prim","Primrose"],
+        answer: "Primrose"
+    },
+    {
+        question: "Why does the Capital hold the Hunger Games?",
+        choices: ["As a way to control the size of the population", "To keep the districts happy", "Because they are part of a religious festival",
+        "To remind the districts that they are powerless against it"],
+        answer: "To remind the districts that they are powerless against it"
+    },
+    {
+        question: "Under what circumstances did Katniss first meet Peeta?",
+        choices: [ "Katniss was looking for food and Peeta gave her bread", "They were both in the woods hunting", "They did a project at school together", "Peeta was injured and Katniss mother helped him"], 
+        answer: "Katniss was looking for food and Peeta gave her bread"
+    },
+    {
+        question: "What does Rue point out to Katniss that let her get away form the group of Career Tributes?",
+        choices: ["A sheaf of arrows", "A tracker jacker nest", "A boulder", "A mockinjay nest"],
+        answer: "A tracker jacker nest"
+    },
+    {
+        question: "How do Katniss and Peeta force the Capitol to declare them both winners?"
+        answer: ["They threaten to run away",
+        "They threaten that the winner will tell about everything",
+        "They threaten to commit suicide",
+        "They threaten to cause a rebellion against the Capitol"],
+        answer: "They threaten to commit suicide"
+    },
+    
 ]
 
-const answerquestionone = [
-    "Pamela",
-    "Primly",
-    "Prim",
-    "Primrose",
-];
+let score = 0;
+let questionIndex = 0;
 
-const answerquestiontwo = [
-    "As a way to control the size of the population",
-    "To keep the districts happy",
-    "Because they are part of a religious festival",
-    "To remind the districts that they are powerless against it",
-];
-
-const answerquestionthree = [
-    "Katniss was looking for food and Peeta gave her bread",
-    "They were both in the woods hunting",
-    "They did a project at school together",
-    "Peeta was injured and Katniss’s mother helped him",
-];
-
-const answerquestionfour = [
-    "A sheaf of arrows",
-    "A tracker jacker nest",
-    "A boulder",
-    "A mockinjay nest",
-];
-
-const answerquestionfive = [
-    "They threaten to run away",
-    "They threaten that the winner will tell about everything",
-    "They threaten to commit suicide",
-    "They threaten to cause a rebellion against the Capitol",
-];
 
 // document.querySelector("#question").innerHTML = questions[questionNumber];
 // document.querySelector("#answer1").innerHTML = answerquestionone[0];
