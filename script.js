@@ -31,10 +31,10 @@ function countdown() {
 }
 
 
-// function beginQuiz(){
-//     countdown();
-//     showQuestion();
-// }
+function beginQuiz(){
+    countdown();
+    showQuestion();
+}
 
 
 startButton.addEventListener('click', startQuiz);
@@ -45,18 +45,13 @@ startButton.addEventListener('click', startQuiz);
 
     }
 
-let answer0 = document.querySelector('#answer0');
-let answer1 = document.querySelector('#answer1'); 
-let answer2 = document.querySelector('#answer2'); 
-let answer3 = document.querySelector('#answer3'); 
-
-answer0.addEventListener('click', answer0click);
-answer1.addEventListener('click', answer1click);
-answer2.addEventListener('click', answer2click);
-answer3.addEventListener('click', answer3click);
-
-
-
+let question = document.querySelector("#question");
+let choiceA = document.querySelector("A"); 
+let choiceB = document.querySelector("B"); 
+let choiceC = document.querySelector("C"); 
+let choiceD = document.querySelector("D"); 
+let currentQuestion = 0 
+let questionsCorrect = 0  
 
 let questions = [
     {
@@ -81,7 +76,7 @@ let questions = [
         answer: "A tracker jacker nest"
     },
     {
-        question: "How do Katniss and Peeta force the Capitol to declare them both winners?"
+        question: "How do Katniss and Peeta force the Capitol to declare them both winners?",
         answer: ["They threaten to run away",
         "They threaten that the winner will tell about everything",
         "They threaten to commit suicide",
@@ -91,63 +86,40 @@ let questions = [
     
 ]
 
-let score = 0;
-let questionIndex = 0;
+function showQuestions() {
+    question.textContent = questions[currentQuestion].question;
+    choiceA.textContent = questions[currentQuestion].choices[0];
+    choiceB.textContent = questions[currentQuestion].choices[1];
+    choiceC.textContent = questions[currentQuestion].choices[2];
+    choiceD.textContent = questions[currentQuestion].choices[3];
+}
+
+choiceA.addEventListener("Click", choseA);
+choiceB.addEventListener("Click", choseB);
+choiceC.addEventListener("Click", choseC);
+choiceD.addEventListener("Click", choseD);
 
 
-// document.querySelector("#question").innerHTML = questions[questionNumber];
-// document.querySelector("#answer1").innerHTML = answerquestionone[0];
-// document.querySelector("#answer2").innerHTML = answerquestiontwo[1];
-// document.querySelector("#answer3").innerHTML = answerquestionthree[2];
-// document.querySelector("#answer4").innerHTML = answerquestionfour[3];
-// document.querySelector("#answer5").innerHTML = answerquestionfive[4];
-
-function answer0click() {
-    if (questionNumber == 0) {
-        wrong();
+function checkAnswer(answer) {
+    if (questions[currentQuestion].choices[answer] === questions[currentQuestion].answer) {
+        answerStanding.textContent = "Correct"
+        questionsRight ++;
     }
-    if (questionNumber == 1) {
-        wrong();
+    else {
+        answerStanding.textContent = "Wrong. 6 second will be subtracted from your timer."
     }
     if (questionNumber == 2) {
         wrong ();
     }   
-    if (questionNumber == 3) {
-        right ();
+    
+    CurrentQuestion ++;
+    if (questionQuestion < question.length) {
+        showQuestions();
     }
-    function wrong() {
-        console.log("new wrong")
+    else {
+        quizFinished();
     }
     
-    function right() {
-        console.log("new right")
-    }
-    questionNumber++;
-    start();
-}
-
-function answer1click() {
-    if (questionNumber == 0) {
-        wrong();
-    }
-    if (questionNumber == 1) {
-        wrong();
-    }
-    if (questionNumber == 2) {
-        wrong ();
-    }
-    if (questionNumber == 3) {
-        right ();
-    }
-    function wrong() {
-        console.log("new wrong")
-    }
-    
-    function right() {
-        console.log("new right")
-    }
-    questionNumber++;
-    start();
 }
 
 
