@@ -1,18 +1,12 @@
+let scores = [];
 let highScoreSection = document.querySelector("highScoreSection");
 let finalScore = document.querySelector("finalScore");
 let clearHighScoreBtn = document.querySelector("clearHighScoreBtn");
 let viewHighScore = document.querySelector("viewHighScore");
 let listOfHighScores = document.querySelector("listOfHighScores");
 let startButton = document.querySelector('#startQuiz');
-// let timerEl = document.querySelector('#timer');
 let timeInterval = document.querySelector(".timeInterval")
 let setInterval = document.querySelector(".setInterval")
-let questionNumber = 0;
-let answerNumber = 0;
-let one = 1;
-let two = 2;
-let three = 3; 
-let four = 4;
 let timer = 105;
 let quizTimer = document.querySelector("#quizTimer")
 
@@ -120,131 +114,29 @@ function checkAnswer(answer) {
         quizFinished();
     }
     
+};
+
+
+
+    function choseA() {
+        clickAnswer(0)
+    };
+    function choiceB() {
+        clickAnswer(1)
+    };
+    function choiceC() {
+        clickAnswer(2)
+    };
+    function choiceD() {
+        clickAnswer(3)
+    };
+    
+function quizFinished() {
+    finalScore.textContent = "Your final score:" + questionCorrect + "/5";
+} 
+
+function showScores() {
+    let finalScore JSON.parse(localStorage.getItem("scores"))
 }
 
 
-
-function answer2click() {
-    if (questionNumber == 0) {
-        right ();
-    }
-    if (questionNumber == 1) {
-        wrong();
-    }
-    if (questionNumber == 2) {
-        wrong ();
-    }
-    if (questionNumber == 3) {
-        wrong ();
-    }
-    function wrong() {
-        console.log("new wrong")
-    }
-    
-    function right() {
-        console.log("new right")
-    }
-    questionNumber++;
-    start();
-}
-
-function answer3click() {
-
-    if (questionNumber == 0) {
-        wrong();
-    }
-    if (questionNumber == 1) {
-        right();
-    }
-    if (questionNumber == 2) {
-        wrong ();
-    }
-    if (questionNumber == 3) {
-        wrong ();
-    }  
-    function wrong() {
-        console.log("new wrong")
-    }
-    
-    function right() {
-        console.log("new right")
-    }
-    questionNumber++;
-    start();
-
-}   
-
-function answer4click() {
-    if (questionNumber == 0) {
-        wrong();
-    }
-    if (questionNumber == 1) {
-        wrong();
-    }
-    if (questionNumber == 2) {
-        right ();
-    }
-    if (questionNumber == 3) {
-        wrong ();
-    }
-    function wrong() {
-        console.log("new wrong")
-    }
-    
-    function right() {
-        console.log("new right")
-    }
-    questionNumber++;
-    start();
-    
-    
-}   
-
-
-
-function wrong() {
-    console.log("wrong")
-}
-
-function right() {
-    console.log("right")
-}
-
-function start() {
-    if (questionNumber == 0) {
-        document.querySelector("#question").innerHTML = questions[questionNumber];
-        document.querySelector("#answer0").innerHTML = answerquestionone[0];
-        document.querySelector("#answer1").innerHTML = answerquestionone[1];
-        document.querySelector("#answer2").innerHTML = answerquestionone[2];
-        document.querySelector("#answer3").innerHTML = answerquestionone[3];
-    }
-    else if (questionNumber == 1) {
-        document.querySelector("#question").innerHTML = questions[questionNumber];
-        document.querySelector("#answer0").innerHTML = answerquestiontwo[0];
-        document.querySelector("#answer1").innerHTML = answerquestiontwo[1];
-        document.querySelector("#answer2").innerHTML = answerquestiontwo[2];
-        document.querySelector("#answer3").innerHTML = answerquestiontwo[3];
-    }
-    else if (questionNumber == 2) {
-        document.querySelector("#question").innerHTML = questions[questionNumber];
-        document.querySelector("#answer0").innerHTML = answerquestionthree[0];
-        document.querySelector("#answer1").innerHTML = answerquestionthree[1];
-        document.querySelector("#answer2").innerHTML = answerquestionthree[2];
-        document.querySelector("#answer3").innerHTML = answerquestionthree[3];
-    }
-    else if (questionNumber == 3) {
-        document.querySelector("#question").innerHTML = questions[questionNumber];
-        document.querySelector("#answer0").innerHTML = answerquestionfour[0];
-        document.querySelector("#answer1").innerHTML = answerquestionfour[1];
-        document.querySelector("#answer2").innerHTML = answerquestionfour[2];
-        document.querySelector("#answer3").innerHTML = answerquestionfour[3];
-    }
-    else if (questionNumber == 4) {
-        document.querySelector("#question").innerHTML = questions[questionNumber];
-        document.querySelector("#answer0").innerHTML = answerquestionfive[0];
-        document.querySelector("#answer1").innerHTML = answerquestionfive[1];
-        document.querySelector("#answer2").innerHTML = answerquestionfive[2];
-        document.querySelector("#answer3").innerHTML = answerquestionfive[3];
-    }
-    
-}     
