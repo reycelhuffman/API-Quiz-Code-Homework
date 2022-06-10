@@ -103,7 +103,7 @@ function quizTimer() {
         }
         else {
             clearInterval(timeInterval);
-            timer.textContent = "Time Out";
+            timer.textContent = "Out of Time";
         }
     }, 1000);
 }
