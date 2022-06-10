@@ -72,73 +72,48 @@ startButton.addEventListener('click', startQuiz);
             });
         }
     }
+function endQuiz() {
+    let nameInput = document.createElement("input");
+    let scoreSubmit = document.createElement("button");
+    quizContainer.innerHTML = "";
+    nameInput.setAttribute("id", "nameInput");
+    scoreSubmit.setAttribute("id", "scoreSubmit");
+    scoreSubmit.innerText = "Submit";
+    quizContainer.append(nameInput);
+    quizContainer.append(scoreSubmit);
+    scoreSubmit.addEventListener("Click", submitScore);
+    document.getElementsById("startButton").remove();
+    startTime = 0;
+}
+
+function displayScores(scores) {
+    quizContainer.innerHTML = "";
+    for (entry of scores) {
+        let scoreEntry = document.createElement("p");
+        scoreEntry.innerText = `Name: ${entry.name}, Score: ${entry.score}`;
+        quizContainer.append(scoreEntry);
+    }
+}
+function quizTimer() {
+    let timeInterval;
+    timeInterval = setInterval(function () {
+        if (startTime > = 1) {
+            startQuiz --;
+            timer.textContent = startTime + "Second left";
+        }
+        else {
+            clearInterval(timeInterval);
+            timer.textContent = "Time Out";
+        }
+    }, 1000);
+}
 
 function showQuestion() {
-    question.textContent = questions[currentQuestion].question;
-    choiceA.textContent = questions[currentQuestion].choices[0];
-    choiceB.textContent = questions[currentQuestion].choices[1];
-    choiceC.textContent = questions[currentQuestion].choices[2];
-    choiceD.textContent = questions[currentQuestion].choices[3];
-}
-
-choiceA.addEventListener("click", choseA);
-choiceB.addEventListener("click", choseB);
-choiceC.addEventListener("click", choseC);
-choiceD.addEventListener("click", choseD);
-
-
-function checkAnswer(answer) {
-    if (questions[currentQuestion].choices[answer] === questions[currentQuestion].answer) {
-        answerStanding.textContent = "Correct"
-        questionsRight ++;
-    }
-    else {
-        answerStanding.textContent = "Wrong. 6 second will be subtracted from your timer."
-    }
-    if (questionNumber == 2) {
-        wrong ();
-    }   
-    
-    CurrentQuestion ++;
-    if (questionQuestion < question.length) {
-        showQuestions();
-    }
-    else {
-        quizFinished();
-    }
-    
-};
-
-
-
-    function choseA() {
-        //var itemA = this.value;
-        console.log(itemA)
-
-
-        clickAnswer(itemA)
-    };
-    function choseB() {
-        clickAnswer(1)
-    };
-    function choseC() {
-        clickAnswer(2)
-    };
-    function choseD() {
-        clickAnswer(3)
-    };
-
-function clickAnswer(x){
-    console.log(x)
-    
-}
-    
-function quizFinished() {
-    finalScore.textContent = "Your final score:" + questionCorrect + "/5";
-} 
-
-function showScores() {
-    let finalScore = JSON.parse(localStorage.getItem("scores"))
+    question.innerText = myQuestion[currentQuestion].question;
+    A.innerHTML = myQuestions[currentQuestion].A;
+    B.innerHTML = myQuestions[currentQuestion].B;
+    C.innerHTML = myQuestions[currentQuestion].C;
+    D.innerHTML = myQuestions[currentQuestion].D;
 }
 
 
