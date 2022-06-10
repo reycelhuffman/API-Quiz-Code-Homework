@@ -1,49 +1,18 @@
-let scores = [];
-let highScoreSection = document.querySelector("highScoreSection");
-let finalScore = document.querySelector("finalScore");
-let clearHighScoreBtn = document.querySelector("clearHighScoreBtn");
-let viewHighScore = document.querySelector("viewHighScore");
-let listOfHighScores = document.querySelector("listOfHighScores");
-let startButton = document.querySelector('#startQuiz');
-let timeInterval = document.querySelector(".timeInterval")
-let setInterval = document.querySelector(".setInterval")
-let timer = 105;
-let quizTimer = document.querySelector("#quizTimer")
+let quizTimer = document.querySelector("#quizTimer");
+let startQuiz = document.querySelector("#startQuiz");
+let A = document.querySelector("#A");
+let B = document.querySelector("#B");
+let C = document.querySelector("#C");
+let D = document.querySelector("#D");
+let timer = 80;
 
 
-function countdown() {
-
-    let timeLeft = setInterval(() => {
-        if (timer >= 0 || questionIndex < 5) {
-            quizTimer.textContent = timer + " seconds left";
-            timer--;
-        //questionIndex ++;
-            }else {
-                    clearInterval(timeLeft);        
-        }
-    }, 1000);
-}
-
-
-function beginQuiz(){
-    countdown();
-    showQuestion();
-}
-
-
-startButton.addEventListener('click', startQuiz);
-    function startQuiz(){
-        //console.log('startButton');
-        countdown();
-        start();
-
-    }
 
 let question = document.querySelector("#question");
-let choiceA = document.querySelector("A"); 
-let choiceB = document.querySelector("B"); 
-let choiceC = document.querySelector("C"); 
-let choiceD = document.querySelector("D"); 
+let choiceA = document.querySelector(".A"); 
+let choiceB = document.querySelector(".B"); 
+let choiceC = document.querySelector(".C"); 
+let choiceD = document.querySelector(".D"); 
 let currentQuestion = 0 
 let questionsCorrect = 0  
 
@@ -80,7 +49,31 @@ let questions = [
     
 ]
 
-function showQuestions() {
+startButton.addEventListener('click', startQuiz);
+    function startQuiz(){
+        quizTimer();
+        showQuestion();
+
+        document.querySelectorAll(".answerButton").forEach(item) => {
+            item.addEventListener("click", (event) => {
+                if (
+                    event.currentTarget.innerText === myQuestion[currentQuestion].answer
+                ) {
+                    score++;
+                } else {
+                    startTime -= 10;
+                }
+                currentQuestion++;
+                if (currentQuestion > 3) {
+                    endQuiz();
+                } else {
+                    showQuestion();
+                }
+            });
+        }
+    }
+
+function showQuestion() {
     question.textContent = questions[currentQuestion].question;
     choiceA.textContent = questions[currentQuestion].choices[0];
     choiceB.textContent = questions[currentQuestion].choices[1];
@@ -88,10 +81,10 @@ function showQuestions() {
     choiceD.textContent = questions[currentQuestion].choices[3];
 }
 
-choiceA.addEventListener("Click", choseA);
-choiceB.addEventListener("Click", choseB);
-choiceC.addEventListener("Click", choseC);
-choiceD.addEventListener("Click", choseD);
+choiceA.addEventListener("click", choseA);
+choiceB.addEventListener("click", choseB);
+choiceC.addEventListener("click", choseC);
+choiceD.addEventListener("click", choseD);
 
 
 function checkAnswer(answer) {
@@ -119,24 +112,34 @@ function checkAnswer(answer) {
 
 
     function choseA() {
-        clickAnswer(0)
+        //var itemA = this.value;
+        console.log(itemA)
+
+
+        clickAnswer(itemA)
     };
-    function choiceB() {
+    function choseB() {
         clickAnswer(1)
     };
-    function choiceC() {
+    function choseC() {
         clickAnswer(2)
     };
-    function choiceD() {
+    function choseD() {
         clickAnswer(3)
     };
+
+function clickAnswer(x){
+    console.log(x)
+    
+}
     
 function quizFinished() {
     finalScore.textContent = "Your final score:" + questionCorrect + "/5";
 } 
 
 function showScores() {
-    let finalScore JSON.parse(localStorage.getItem("scores"))
+    let finalScore = JSON.parse(localStorage.getItem("scores"))
 }
+
 
 
