@@ -16,18 +16,23 @@
     <div class="header">
         <h1>Let The Hunger Games Quiz Begin!</h1>
     </div>
-    <div> <h1 class="quizTimer">
-    </div>
-    <br />
+    <!-- timer -->
     <div> 
-        <button id="startQuiz" class="startQuiz btn">Start Quiz</button>
+        <h1 id="quizTime"></h1>
     </div>
+
+    <br />
+    <!-- start button -->
+    <div> 
+        <button id="startQuiz" class="startQuiz btn">Click to start</button>
+    </div>
+    <!-- question and choice to display -->
     <div id="main">
         <h2 id="question"></h2>
-        <button class="answerButton" id="A">A</button>
-        <button class="answerButton" id="B">B</button>
-        <button class="answerButton" id="C">C</button>
-        <button class="answerButton" id="D">D</button>
+        <button class="answerButton" id="A"></button>
+        <button class="answerButton" id="B"></button>
+        <button class="answerButton" id="C"></button>
+        <button class="answerButton" id="D"></button>
     </div>
 
     <div id="score"></div>

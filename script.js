@@ -1,19 +1,22 @@
-let quizTimer = document.querySelector("quizTimer");
+let quizTimer = document.querySelector("quizTime");
 let startQuiz = document.querySelector("#startQuiz");
 let quizContainer = document.querySelector("#main");
+// display questions
 let question = document.querySelector("#question");
-let A = document.querySelector("#A");
-let B = document.querySelector("#B");
-let C = document.querySelector("#C");
-let D = document.querySelector("#D");
+// display answers
+let optionOne = document.querySelector("#A");
+let optionTwo = document.querySelector("#B");
+let optionThree = document.querySelector("#C");
+let optionFour = document.querySelector("#D");
+// display score 
 let scoreContainer = document.querySelector("#score");
 let score = 0;
-let timer = 60;
+let timer = 80;
 
 
 
 let currentQuestion = 0 
-// let questionsCorrect = 0  
+let questionsCorrect = 0  
 
 let questions = [
     {
@@ -59,9 +62,10 @@ let questions = [
     
 ];
 
+// Click start to function quiz
 startQuiz.addEventListener("click", beginQuiz);
     function beginQuiz() {
-        timerStart();
+        quizTimer();
         showQuestion();
 
         document.querySelectorAll(".answerButton").forEach((item) => {
@@ -82,6 +86,29 @@ startQuiz.addEventListener("click", beginQuiz);
             });
         });
     }
+
+function quizTimer() {
+    let timeInterval;
+    timeInterval = setInterval(function () {
+        if (startTime >= 1) {
+            startTime --;
+            timer.textContent = startTime + "Second left";
+        }
+        else {
+            clearInterval(timeInterval);
+            timer.textContent = "Out of Time";
+        }
+    }, 1000);
+}
+
+function showQuestion() {
+    question.innerText = questions[currentQuestion].question;
+    A.innerText = questions[currentQuestion].optionOne;
+    B.innerText = questions[currentQuestion].optionTwo;
+    C.innerText = questions[currentQuestion].optionThree;
+    D.innerText = questions[currentQuestion].optionFour;
+}
+
 function endQuiz() {
     let typeName = document.createElement("name");
     let scoreSubmit = document.createElement("button");
@@ -117,26 +144,13 @@ function displayScores(scores) {
         quizContainer.append(scoreEntry);
     }
 }
-function quizTimer() {
-    let timeInterval;
-    timeInterval = setInterval(function () {
-        if (startTime >= 1) {
-            startTime --;
-            timer.textContent = startTime + "Second left";
-        }
-        else {
-            clearInterval(timeInterval);
-            timer.textContent = "Out of Time";
-        }
-    }, 1000);
-}
 
 function showQuestion() {
     question.innerText = questions[currentQuestion].question;
-    A.innerText = questions[currentQuestion].A;
-    B.innerText = questions[currentQuestion].B;
-    C.innerText = questions[currentQuestion].C;
-    D.innerText = questions[currentQuestion].D;
+    A.innerText = questions[currentQuestion].optionOne;
+    B.innerText = questions[currentQuestion].optionTwo;
+    C.innerText = questions[currentQuestion].optionThree;
+    D.innerText = questions[currentQuestion].optionFour;
 }
 
 
