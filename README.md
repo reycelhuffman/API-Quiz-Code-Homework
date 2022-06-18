@@ -1,5 +1,5 @@
-## Title: Code startQuiz
-This is a timed test with multiple questions. 
+## Title: API Quiz Homework 
+This is a timed test with multiple questions about The Hunger Games book. 
 
 ## Description 
 This app is created in order for users to take time quiz about anything they would like. 
@@ -8,7 +8,7 @@ This app is created in order for users to take time quiz about anything they wou
 [![Demo Video](https://img.youtube.com/vi/1eJCAoFZ0eI/0.jpg)](https://www.youtube.com/watch?v=1eJCAoFZ0eI)
 
 ## Usage 
-Click start and the quiz will start
+Click start quiz and the quiz will start
 
 ## Features 
 - HTML

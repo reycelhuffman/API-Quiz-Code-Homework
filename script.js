@@ -8,7 +8,7 @@ let C = document.querySelector("#C");
 let D = document.querySelector("#D");
 let scoreContainer = document.querySelector("#score");
 let score = 0;
-let timer = 80;
+let timer = 60;
 
 
 
@@ -57,10 +57,10 @@ let questions = [
         answer: "They threaten to commit suicide",
     },
     
-]
+];
 
-startQuiz.addEventListener('click', beginQuiz);
-    function startQuiz() {
+startQuiz.addEventListener("click", beginQuiz);
+    function beginQuiz() {
         timerStart();
         showQuestion();
 
