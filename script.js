@@ -1,4 +1,4 @@
-let quizTimer = document.querySelector("#quizTimer");
+let quizTimer = document.querySelector(".quizTimer");
 let startQuiz = document.querySelector("#startQuiz");
 let quizContainer = document.querySelector("#main");
 let question = document.querySelector("#question");
@@ -59,7 +59,7 @@ let questions = [
     
 ]
 
-startButton.addEventListener('click', startQuiz);
+startQuiz.addEventListener('click', beginQuiz);
     function startQuiz() {
         timerStart();
         showQuestion();
@@ -86,10 +86,10 @@ function endQuiz() {
     let typeName = document.createElement("name");
     let scoreSubmit = document.createElement("button");
     quizContainer.innerHTML = "";
-    typeNAme.setAttribute("id", "typeNAme");
+    typeName.setAttribute("id", "typeNAme");
     scoreSubmit.setAttribute("id", "scoreSubmit");
     scoreSubmit.innerText = "Submit";
-    quizContainer.append(typeNAme);
+    quizContainer.append(typeName);
     quizContainer.append(scoreSubmit);
     scoreSubmit.addEventListener("Click", submitScore);
     document.getElementsById("startButton").remove();
@@ -133,10 +133,10 @@ function quizTimer() {
 
 function showQuestion() {
     question.innerText = myQuestion[currentQuestion].question;
-    A.innerHTML = myQuestions[currentQuestion].A;
-    B.innerHTML = myQuestions[currentQuestion].B;
-    C.innerHTML = myQuestions[currentQuestion].C;
-    D.innerHTML = myQuestions[currentQuestion].D;
+    A.innerText = myQuestions[currentQuestion].A;
+    B.innerText = myQuestions[currentQuestion].B;
+    C.innerText = myQuestions[currentQuestion].C;
+    D.innerText = myQuestions[currentQuestion].D;
 }
 
 

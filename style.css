@@ -13,7 +13,7 @@ body {
 .quizTimer {
     text-align: center;
 }
-.startQuiz {
+#startQuiz {
     text-align: center;
 }
 #main {
