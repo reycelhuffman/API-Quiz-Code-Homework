@@ -1,4 +1,4 @@
-let quizTimer = document.querySelector(".quizTimer");
+let quizTimer = document.querySelector("quizTimer");
 let startQuiz = document.querySelector("#startQuiz");
 let quizContainer = document.querySelector("#main");
 let question = document.querySelector("#question");
@@ -13,7 +13,7 @@ let timer = 80;
 
 
 let currentQuestion = 0 
-let questionsCorrect = 0  
+// let questionsCorrect = 0  
 
 let questions = [
     {
@@ -22,7 +22,7 @@ let questions = [
         B: "Primly", 
         C: "Prim",
         D: "Primrose",
-        answer: "Primrose"
+        answer: "Primrose",
     },
     {
         question: "Why does the Capital hold the Hunger Games?",
@@ -30,7 +30,7 @@ let questions = [
         B: "To keep the districts happy", 
         C: "Because they are part of a religious festival",
         D: "To remind the districts that they are powerless against it",
-        answer: "To remind the districts that they are powerless against it"
+        answer: "To remind the districts that they are powerless against it",
     },
     {
         question: "Under what circumstances did Katniss first meet Peeta?",
@@ -38,7 +38,7 @@ let questions = [
         B: "They were both in the woods hunting", 
         C: "They did a project at school together", 
         D: "Peeta was injured and Katniss mother helped him", 
-        answer: "Katniss was looking for food and Peeta gave her bread"
+        answer: "Katniss was looking for food and Peeta gave her bread",
     },
     {
         question: "What does Rue point out to Katniss that let her get away form the group of Career Tributes?",
@@ -46,7 +46,7 @@ let questions = [
         B: "A tracker jacker nest", 
         C: "A boulder", 
         D: "A mockingjay nest",
-        answer: "A tracker jacker nest"
+        answer: "A tracker jacker nest",
     },
     {
         question: "How do Katniss and Peeta force the Capitol to declare them both winners?", 
@@ -54,7 +54,7 @@ let questions = [
         B: "They threaten that the winner will tell about everything",
         C: "They threaten to commit suicide",
         D: "They threaten to cause a rebellion against the Capitol",
-        answer: "They threaten to commit suicide"
+        answer: "They threaten to commit suicide",
     },
     
 ]
@@ -67,7 +67,7 @@ startQuiz.addEventListener('click', beginQuiz);
         document.querySelectorAll(".answerButton").forEach((item) => {
             item.addEventListener("click", (event) => {
                 if (
-                    event.currentTarget.innerText === myQuestions[currentQuestion].answer
+                    event.currentTarget.innerText === questions[currentQuestion].answer
                 ) {
                     score ++;
                 } else {
@@ -86,13 +86,13 @@ function endQuiz() {
     let typeName = document.createElement("name");
     let scoreSubmit = document.createElement("button");
     quizContainer.innerHTML = "";
-    typeName.setAttribute("id", "typeNAme");
+    typeName.setAttribute("id", "typeName");
     scoreSubmit.setAttribute("id", "scoreSubmit");
     scoreSubmit.innerText = "Submit";
     quizContainer.append(typeName);
     quizContainer.append(scoreSubmit);
     scoreSubmit.addEventListener("Click", submitScore);
-    document.getElementsById("startButton").remove();
+    document.getElementsById("startQuiz").remove();
     startTime = 0;
 }
 
@@ -121,7 +121,7 @@ function quizTimer() {
     let timeInterval;
     timeInterval = setInterval(function () {
         if (startTime >= 1) {
-            startQuiz --;
+            startTime --;
             timer.textContent = startTime + "Second left";
         }
         else {
@@ -132,11 +132,11 @@ function quizTimer() {
 }
 
 function showQuestion() {
-    question.innerText = myQuestion[currentQuestion].question;
-    A.innerText = myQuestions[currentQuestion].A;
-    B.innerText = myQuestions[currentQuestion].B;
-    C.innerText = myQuestions[currentQuestion].C;
-    D.innerText = myQuestions[currentQuestion].D;
+    question.innerText = questions[currentQuestion].question;
+    A.innerText = questions[currentQuestion].A;
+    B.innerText = questions[currentQuestion].B;
+    C.innerText = questions[currentQuestion].C;
+    D.innerText = questions[currentQuestion].D;
 }
 
 
