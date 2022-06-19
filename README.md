@@ -4,8 +4,8 @@ This is a timed test with multiple questions about The Hunger Games book.
 ## Description 
 This app is created in order for users to take time quiz about anything they would like. 
 
-## Video Demo 
-[![Demo Video](https://img.youtube.com/vi/1eJCAoFZ0eI/0.jpg)](https://www.youtube.com/watch?v=1eJCAoFZ0eI)
+## ScreenShot 
+
 
 ## Usage 
 Click start quiz and the quiz will start
