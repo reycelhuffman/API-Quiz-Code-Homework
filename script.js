@@ -137,14 +137,7 @@ function submitScore() {
     displayScores(scores);
 }
 
-function displayScores(scores) {
-    quizContainer.innerHTML = "";
-    for (entry of scores) {
-        let scoreEntry = document.createElement("p");
-        scoreEntry.innerText = `Name: ${entry.name}, Score: ${entry.score}`;
-        quizContainer.append(scoreEntry);
-    }
-}
+
 
 
 
